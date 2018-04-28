@@ -18,4 +18,4 @@ prepped <- midwest %>%
   select(county, state, inmetro, contains("per"), -perchsd)
 
 # Write data
-write.csv("midwest.csv")
+write.csv(prepped, "midwest.csv", row.names = F)
