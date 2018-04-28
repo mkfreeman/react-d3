@@ -1,5 +1,57 @@
-@import url("https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css");
+/* @import url("https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css"); */
+@import url("https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css");
 
+.container {
+    /* margin-top:40px; */
+    /* width:90%; */
+    text-align: center;
+}
+
+.jumbotron {
+    padding:1rem 1rem;
+    margin-bottom:20px;
+}
+
+circle {
+    cursor:pointer;
+}
 .axis-label {
     text-anchor:middle;
+    font-size:10px;
 }
+
+.chart-wrapper {
+    display: inline-block;
+}
+
+/* Controls */
+.custom-select {
+    width:inherit;
+}
+
+.control-wrapper {
+    display: inline-block;
+    margin-left:10px;
+}
+
+.control-wrapper input[type="range"]  {
+    vertical-align: text-bottom;;
+}
+
+.control-container {
+    border-bottom:1px solid #d3d3d3;
+    margin-bottom:10px;
+    padding-bottom:10px;
+}
+/* Tooltips */
+.d3-tip {
+    line-height: 1;
+    font-weight: bold;
+    padding: 12px;
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    border-radius: 2px;
+    pointer-events: none;
+  }
+  
+  

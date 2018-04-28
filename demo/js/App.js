@@ -1,12 +1,88 @@
 // Application file
 class App extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            data: [],
+            xVar: "percollege",
+            yVar: "percbelowpoverty",
+            search: '',
+            radius: 3
+        };
+    }
+    componentDidMount() {
+        // Load data when the component mounts
+        d3.csv("data/midwest.csv", (err, data) => {
+            this.setState({ data: data });
+        });
+    }
     render() {
+        // Get lis of possible x and y variables
+        let options = this.state.data.length === 0 ? [] : Object.keys(this.state.data[0]);
+        options = options.filter((d) => d != "county" && d != "state");
+
+        // Store all of the data to be plotted 
+        let allData = this.state.data.map((d) => {
+            return {
+                x: d[this.state.xVar],
+                y: d[this.state.yVar],
+                label: d.county + ", " + d.state,
+                group: d.state,
+                selected: d.county.toLowerCase().match(this.state.search.toLowerCase()) != null && this.state.search !== ''
+            };
+        });
+
+        // Nest the data to create different charts by state
+        let nestedData = d3.nest().key((d) => d.group)
+            .entries(allData)
+
+
         return (
             <div>
-                {d3.range(10).map((d) => {
-                    return <ScatterPlot/>
-                })}
-            </div>
+                <div class="jumbotron">
+                    <h1 class="display-3">Midwestern State Demographics</h1>
+                    <p class="lead">A demonstration of React + D3</p>
+                </div>
+                <div className="container">
+                    <div className="control-container">
+                        <div className="control-wrapper">
+                            <label htmlFor="xVar">X Variable:</label>
+                            <select id="xVar" value={this.state.xVar} className="custom-select" onChange={(d) => this.setState({ xVar: d.target.value })}>
+                                {options.map((d) => {
+                                    return <option key={d}>{d}</option>
+                                })}
+                            </select>
+                        </div>
+                        {/* Y Variable Select Menu */}
+                        <div className="control-wrapper">
+                            <label htmlFor="yVar">Y Variable:</label>
+                            <select id="yVar" value={this.state.yVar} className="custom-select" onChange={(d) => this.setState({ yVar: d.target.value })}>
+                                {options.map((d) => {
+                                    return <option key={d}>{d}</option>
+                                })}
+                            </select>
+                        </div>
+                        <div className="control-wrapper">
+                            <label htmlFor="radiusSlider">Radius:</label>
+                            <input id="radiusSlider" type="range" min={.5} max={10} step={.5} value={this.state.radius} onChange={(d) => this.setState({ radius: d.target.value })} />
+                        </div>
+                        <div className="control-wrapper">
+                            <input className="form-control" placeholder="Search Counties..." onChange={(d) => this.setState({ search: d.target.value })} />
+                        </div>
+                    </div>
+                    {
+                        nestedData.map((group) => {
+                            return <ScatterPlot
+                                title={group.key}
+                                xTitle={this.state.xVar}
+                                yTitle={this.state.yVar}
+                                data={group.values}
+                                radius={this.state.radius}
+                                key={group.key} />
+                        })
+                    }
+                </div>
+            </div >
         )
     }
 }
