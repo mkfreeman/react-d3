@@ -1,27 +1,13 @@
-/* @import url("https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css"); */
 @import url("https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css");
 
+/* Header */
 .container {
-    /* margin-top:40px; */
-    /* width:90%; */
     text-align: center;
 }
 
 .jumbotron {
     padding:1rem 1rem;
     margin-bottom:20px;
-}
-
-circle {
-    cursor:pointer;
-}
-.axis-label {
-    text-anchor:middle;
-    font-size:10px;
-}
-
-.chart-wrapper {
-    display: inline-block;
 }
 
 /* Controls */
@@ -43,6 +29,21 @@ circle {
     margin-bottom:10px;
     padding-bottom:10px;
 }
+
+/* Scatter plot */
+circle {
+    cursor:pointer;
+}
+.axis-label {
+    text-anchor:middle;
+    font-size:10px;
+}
+
+.chart-wrapper {
+    display: inline-block;
+}
+
+
 /* Tooltips */
 .d3-tip {
     line-height: 1;

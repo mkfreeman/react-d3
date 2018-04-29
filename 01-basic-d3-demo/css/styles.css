@@ -1,0 +1,16 @@
+/* Bootstrap CSS */
+@import url("https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css");
+
+/* Scatter plot */
+circle {
+    cursor:pointer;
+}
+.axis-label {
+    text-anchor:middle;
+    font-size:10px;
+}
+
+#root {
+    padding-top:30px;
+    text-align: center;
+}

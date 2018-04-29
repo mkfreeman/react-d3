@@ -38,7 +38,7 @@ class ScatterPlot extends React.Component {
         circles.enter().append('circle')
             .merge(circles)
             .attr('r', (d) => this.props.radius)
-            .attr('fill', (d) => this.props.fill(d))
+            .attr('fill', (d) => this.props.color)
             .attr('label', (d) => d.label)
             .on('mouseover', tip.show)
             .on('mouseout', tip.hide)
@@ -108,7 +108,7 @@ ScatterPlot.defaultProps = {
     width: 300,
     height: 300,
     radius: 5,
-    fill: (d) => "blue",
+    color: "blue",
     margin: {
         left: 50,
         right: 10,

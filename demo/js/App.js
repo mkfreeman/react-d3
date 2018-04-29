@@ -2,12 +2,15 @@
 class App extends React.Component {
     constructor(props) {
         super(props);
+
+        // Set initial state
         this.state = {
             data: [],
             xVar: "percollege",
             yVar: "percbelowpoverty",
             search: '',
-            radius: 3
+            radius: 3,
+            color: '#081AFF'
         };
     }
     componentDidMount() {
@@ -17,7 +20,7 @@ class App extends React.Component {
         });
     }
     render() {
-        // Get lis of possible x and y variables
+        // Get list of possible x and y variables
         let options = this.state.data.length === 0 ? [] : Object.keys(this.state.data[0]);
         options = options.filter((d) => d != "county" && d != "state");
 
@@ -34,17 +37,19 @@ class App extends React.Component {
 
         // Nest the data to create different charts by state
         let nestedData = d3.nest().key((d) => d.group)
-            .entries(allData)
-
+            .entries(allData);
+        console.log(this.state.color)
 
         return (
             <div>
-                <div class="jumbotron">
-                    <h1 class="display-3">Midwestern State Demographics</h1>
-                    <p class="lead">A demonstration of React + D3</p>
+                <div className="jumbotron">
+                    <h1 className="display-3">Midwestern State Demographics</h1>
+                    <p className="lead">A demonstration of React + D3</p>
                 </div>
                 <div className="container">
                     <div className="control-container">
+
+                        {/* X Variable Select Menu */}
                         <div className="control-wrapper">
                             <label htmlFor="xVar">X Variable:</label>
                             <select id="xVar" value={this.state.xVar} className="custom-select" onChange={(d) => this.setState({ xVar: d.target.value })}>
@@ -53,6 +58,7 @@ class App extends React.Component {
                                 })}
                             </select>
                         </div>
+
                         {/* Y Variable Select Menu */}
                         <div className="control-wrapper">
                             <label htmlFor="yVar">Y Variable:</label>
@@ -62,14 +68,26 @@ class App extends React.Component {
                                 })}
                             </select>
                         </div>
+
+                        {/* Radius Slider */}
                         <div className="control-wrapper">
                             <label htmlFor="radiusSlider">Radius:</label>
                             <input id="radiusSlider" type="range" min={.5} max={10} step={.5} value={this.state.radius} onChange={(d) => this.setState({ radius: d.target.value })} />
                         </div>
+
+                        {/* Color Picker */}
+                        <div className="control-wrapper">
+                            <label htmlFor="colrPicker">Color:</label>
+                            <input id="colorPicker" type="color" value={this.state.color} onChange={(d) => this.setState({ color: d.target.value })} />
+                        </div>
+
+                        {/* Search Input */}
                         <div className="control-wrapper">
                             <input className="form-control" placeholder="Search Counties..." onChange={(d) => this.setState({ search: d.target.value })} />
                         </div>
                     </div>
+
+                    {/* Render scatter plots */}
                     {
                         nestedData.map((group) => {
                             return <ScatterPlot
@@ -78,6 +96,7 @@ class App extends React.Component {
                                 yTitle={this.state.yVar}
                                 data={group.values}
                                 radius={this.state.radius}
+                                color={this.state.color}
                                 key={group.key} />
                         })
                     }
