@@ -1,7 +1,6 @@
-title,description,link
-01-basic-d3-demo,A demonstration of building a scatterplot using D3. This is the level of background participants are expected to have before moving through these materials.,http://mfviz.com/react-d3/demo-1
-02-class-demo,This page demonstrates how to leverage Classes in JavaScript.,http://mfviz.com/react-d3/demo-2
-03-component-demo,"In this demo, you can see how to create React components that accept information via props.",http://mfviz.com/react-d3/demo-3
-04-react-intro-exercise,"In this exercise, participants will walk through creating and rendering React components",http://mfviz.com/react-d3/demo-4
-05-state-demo,This page demonstrates how to keep track of the state of an application.,http://mfviz.com/react-d3/demo-5
-Demo-6,This exercise demonstrates the use of D3 to make small multiples in conjunction with react,http://mfviz.com/react-d3/demo-6
+title,description
+01-basic-d3-demo,A demonstration of building a scatterplot using D3. This is the level of background participants are expected to have before moving through these materials.
+02-class-demo,This page demonstrates how to leverage Classes in JavaScript.
+03-component-demo,"In this demo, you can see how to create React components that accept information via props."
+04-react-intro-exercise,"In this exercise, participants will walk through creating and rendering React components"
+05-state-demo,This page demonstrates how to keep track of the state of an application.
