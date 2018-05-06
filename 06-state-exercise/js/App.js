@@ -1,5 +1,6 @@
 // Application file
 class App extends React.Component {
+
     constructor(props) {
         super(props);
 
@@ -7,55 +8,52 @@ class App extends React.Component {
         this.state = {
             data: [],
             variable: "percollege",
+            nShow: 10, 
+            sort:"ascending"
         };
     }
+
     componentDidMount() {
         // Load data when the component mounts
-        d3.csv("data/midwest.csv", (err, data) => {
-            this.setState({ data: data });
-        });
+        
     }
     render() {
-        // Get list of possible x and y variables
-        let options = this.state.data.length === 0 ? [] : Object.keys(this.state.data[0]);
-        options = options.filter((d) => d != "county" && d != "state");
+        // Create a variable `options` storing the list of possible variables to show. 
+        // These should be the **object keys** from the first element in your data, excluding "county" and "state".
+       
 
-        // Store all of the data to be summarized
-        let allData = this.state.data.map((d) => {
-            return {
-                value: +d[this.state.variable],
-                state: d.state,
-                county: d.county
-            };
-        });
+        // Create a variable `allData` in which you store the current value of interest 
+        // (based on `this.state.variable`), as well as the state and county
+        
 
-        // Compute summary state
-        let mean = d3.mean(allData, (d) => d.value);
+        // Store the mean of the current value in a variable `mean`
+        
 
+        // Store the top N values (based on `this.state.nShow`) from the data in a variable. 
+        // Observatiosn should be sorted by the current sorting variable (`this.state.variable`) 
+        // in either ascending or descending order (`this.state.sort`).
+        
 
+        // Return an HTML node to render
         return (
             <div>
                 <div className="container">
                     <div className="control-container">
-                        {/* X Variable Select Menu */}
-                        <div className="control-wrapper">
-                            <label htmlFor="variable">Variable:</label>
-                            <select id="variable" value={this.state.variable} className="custom-select" onChange={(d) => this.setState({ variable: d.target.value })}>
-                                {options.map((d) => {
-                                    return <option key={d}>{d}</option>
-                                })}
-                            </select>
-                        </div>
-                        {/* Radius Slider: convert to a table showing top N.
-                        <div className="control-wrapper">
-                            <label htmlFor="radiusSlider">Radius:</label>
-                            <input id="radiusSlider" type="range" min={.5} max={10} step={.5} value={this.state.radius} onChange={(d) => this.setState({ radius: d.target.value })} />
-                        </div>
-                        */}
+                        
+                        {/* Create a Select Menu to determine which variable is shown in the table */}
+                        
+                        
+                        {/*Create a Slider to control how many rows are shown in the table */}
+                        
+
+                        {/*Create a Button Group to control if rows in the table are shown in ascending or descending order */}
+                        
                     </div>
 
-                    {/* Render scatter plots */}
-                    <p>Mean: {mean}</p>
+                    {/* Display the average value (`mean`) in a paragraph element */}
+                    
+
+                    {/* Show a table of the top N counties */}                
                 </div>
             </div >
         )
