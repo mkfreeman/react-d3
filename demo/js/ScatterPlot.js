@@ -10,10 +10,11 @@ class ScatterPlot extends React.Component {
     componentDidMount() {
         this.update();
     }
+    // Whenever the component updates, select the <g> from the DOM, and use D3 to manipulte circles
     componentDidUpdate() {
         this.update();
     }
-    setScales() {
+    updateScales() {
         // Calculate limits
         let xMin = d3.min(this.props.data, (d) => +d.x * .9);
         let xMax = d3.max(this.props.data, (d) => +d.x * 1.1);
@@ -72,9 +73,9 @@ class ScatterPlot extends React.Component {
             .call(yAxisFunction);
     }
     update() {
-        this.setScales();
-        this.updatePoints();
+        this.updateScales();
         this.updateAxes();
+        this.updatePoints();
     }
     render() {
         return (
@@ -85,7 +86,7 @@ class ScatterPlot extends React.Component {
                         transform={`translate(${this.props.margin.left}, ${this.props.margin.top})`} />
 
                     {/* Axes */}
-                    < g ref={(node) => { this.xAxis = node; }}
+                    <g ref={(node) => { this.xAxis = node; }}
                         transform={`translate(${this.props.margin.left}, ${this.props.height - this.props.margin.bottom})`}></g>
                     <g ref={(node) => { this.yAxis = node; }}
                         transform={`translate(${this.props.margin.left}, ${this.props.margin.top})`}></g>
