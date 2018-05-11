@@ -6,6 +6,10 @@
     text-decoration: line-through;
 }
 
+p {
+    margin-bottom:0px;
+}
+
 .todo {
     padding:10px;
     margin:2px;

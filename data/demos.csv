@@ -4,3 +4,7 @@ title,description
 03-component-demo,"In this demo, you can see how to create React components that accept information via props."
 04-react-intro-exercise,"In this exercise, participants will walk through creating and rendering React components"
 05-state-demo,This page demonstrates how to keep track of the state of an application.
+06-state-exercise,This exercise challenges you to leverage the state of an application to keep track of information that changes through user interactions.
+07-d3-demo,"Here, you can see how to leverage D3 to interact with components that are created using React."
+08-scatter-exercise,"In this exercise, you will create a fully functional scatterplot using D3 and React in combination with one another"
+09-small-multiples-exercise,"In this final exercise, you will see how simple it is to use React to render small multiples fo D3 visualizations."

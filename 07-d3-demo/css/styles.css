@@ -14,7 +14,6 @@
 .lead {
     margin-bottom:0px;
 }
-
 /* Controls */
 .custom-select {
     width:inherit;
@@ -35,11 +34,29 @@
     padding-bottom:10px;
 }
 
-/* Buttons */ 
-.btn:focus {
-    box-shadow: none !important;
+/* Scatter plot */
+circle {
+    cursor:pointer;
+}
+.axis-label {
+    text-anchor:middle;
+    font-size:10px;
 }
 
-.btn-group {
-    margin-left:10px;
+.chart-wrapper {
+    display: inline-block;
 }
+
+
+/* Tooltips */
+.d3-tip {
+    line-height: 1;
+    font-weight: bold;
+    padding: 12px;
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    border-radius: 2px;
+    pointer-events: none;
+  }
+  
+  
