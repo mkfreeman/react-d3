@@ -36,7 +36,8 @@ class App extends React.Component {
         });
 
         // Nest the data to create different charts by state
-        
+        let nestedData = d3.nest().key((d) => d.group)
+            .entries(allData);
 
         return (
             <div>
@@ -86,8 +87,17 @@ class App extends React.Component {
                     </div>
 
                     {/* Render scatter plots */}
-                    {/* iterate through `nestedData` here */
-
+                    {
+                        nestedData.map((group) => {
+                            return <ScatterPlot
+                                title={group.key}
+                                xTitle={this.state.xVar}
+                                yTitle={this.state.yVar}
+                                data={group.values}
+                                radius={this.state.radius}
+                                color={this.state.color}
+                                key={group.key} />
+                        })
                     }
                 </div>
             </div >
