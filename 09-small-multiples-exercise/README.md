@@ -21,3 +21,4 @@ As noted above, this exercise is really about getting the right _data structure_
   - `color`: the color for each point, stored in `this.state.color`.
   - `data`: the data for the plot, stored in the `.vales` property of your iterant. 
   - `key`: a unique key for the plot, so React can easily _diff_ the DOM
+  
