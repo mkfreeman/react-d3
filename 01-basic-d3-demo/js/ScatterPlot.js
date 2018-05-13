@@ -27,7 +27,7 @@ const yVar = "percollege";
 /* ************************************* Create chart wrappers ************************************** */
 
 // Create an `svg` element to hold the chart (including axes and labels)
-let svg = d3.select('body')
+let svg = d3.select('#root')
     .append('svg')
     .attr('width', width)
     .attr('height', height);
@@ -68,7 +68,7 @@ d3.csv("data/midwest.csv", (err, rawData) => {
     // Find the minimum y value for the x Scale, and multiply it by .9 (to add space)
     let yMin = d3.min(data, (d) => +d.y) * 0.9;
 
-    // Use `d3.scaleLinear` to define an `xScale` with the appropriate domain and range
+    // Use `d3.scaleLinear` to define a `yScale` with the appropriate domain and range
     let yScale = d3.scaleLinear()
         .range([0, drawHeight])
         .domain([yMax, yMin]);
@@ -85,14 +85,14 @@ d3.csv("data/midwest.csv", (err, rawData) => {
     /* ************************************* Rendering axes and labels ************************************** */
 
     // Append a `g` to the `svg` as an x axis label, specifying the 'transform' attribute to position it
-    // Use the `.call` method to render the axis in the g
+    // Use the `.call` method to render the axis in the `g`
     let xAxisLabel = svg.append('g')
         .attr('transform', 'translate(' + margin.left + ',' + (drawHeight + margin.top) + ')')
         .attr('class', 'axis')
         .call(xAxis);
 
     // Append a `g` to the `svg` as a y axis label, specifying the 'transform' attribute to position it
-    // Use the `.call` method to render the axis in the g
+    // Use the `.call` method to render the axis in the `g`
     let yAxisLabel = svg.append('g')
         .attr('transform', 'translate(' + margin.left + ',' + (margin.top) + ')')
         .attr('class', 'axis')
@@ -125,7 +125,7 @@ d3.csv("data/midwest.csv", (err, rawData) => {
     // Select all circles and bind data to the selection
     let circles = chartG.selectAll('circle').data(data);
 
-    // Use the .enter() method to identify the entering elements, and assign their positions
+    // Use the `.enter()` method to identify the entering elements, and assign their positions
     // Then, merge on any updating circles and set all the properties
     circles.enter().append('circle')
         .on('mouseover', tip.show)

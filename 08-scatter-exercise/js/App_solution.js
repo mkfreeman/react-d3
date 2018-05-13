@@ -31,43 +31,36 @@ class App extends React.Component {
         });
 
         return (
-            <div>
-                <div className="jumbotron">
-                    <h1 className="display-3">08-scatter-exercise</h1>
-                    <p className="lead">Making a D3 scatterplot in React</p>
-                    <span><a href="../">(all exercises)</a></span>
-                </div>
-                <div className="container">
-                    <div className="control-container">
+            <div className="container">
+                <div className="control-container">
 
-                        {/* X Variable Select Menu */}
-                        <div className="control-wrapper">
-                            <label htmlFor="xVar">X Variable:</label>
-                            <select id="xVar" value={this.state.xVar} className="custom-select" onChange={(d) => this.setState({ xVar: d.target.value })}>
-                                {options.map((d) => {
-                                    return <option key={d}>{d}</option>
-                                })}
-                            </select>
-                        </div>
-
-                        {/* Y Variable Select Menu */}
-                        <div className="control-wrapper">
-                            <label htmlFor="yVar">Y Variable:</label>
-                            <select id="yVar" value={this.state.yVar} className="custom-select" onChange={(d) => this.setState({ yVar: d.target.value })}>
-                                {options.map((d) => {
-                                    return <option key={d}>{d}</option>
-                                })}
-                            </select>
-                        </div>                        
+                    {/* X Variable Select Menu */}
+                    <div className="control-wrapper">
+                        <label htmlFor="xVar">X Variable:</label>
+                        <select id="xVar" value={this.state.xVar} className="custom-select" onChange={(d) => this.setState({ xVar: d.target.value })}>
+                            {options.map((d) => {
+                                return <option key={d}>{d}</option>
+                            })}
+                        </select>
                     </div>
 
-                    {/* Render scatter plot */}
-                    <ScatterPlot
-                        xTitle={this.state.xVar}
-                        yTitle={this.state.yVar}
-                        data={allData}
-                        />
+                    {/* Y Variable Select Menu */}
+                    <div className="control-wrapper">
+                        <label htmlFor="yVar">Y Variable:</label>
+                        <select id="yVar" value={this.state.yVar} className="custom-select" onChange={(d) => this.setState({ yVar: d.target.value })}>
+                            {options.map((d) => {
+                                return <option key={d}>{d}</option>
+                            })}
+                        </select>
+                    </div>                        
                 </div>
+
+                {/* Render scatter plot */}
+                <ScatterPlot
+                    xTitle={this.state.xVar}
+                    yTitle={this.state.yVar}
+                    data={allData}
+                    />
             </div>
         )
     }

@@ -23,7 +23,7 @@ class ScatterPlot extends React.Component {
         // Calculate limits: minimum/maximum x and y values in the data
         
 
-        // Define scales `this.xScale()` and `this.yScale()` using the `d3.scaleLinear()`
+        // Define scales `this.xScale()` and `this.yScale()` using `d3.scaleLinear()`
         
     }
 

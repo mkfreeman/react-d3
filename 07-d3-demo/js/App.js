@@ -22,7 +22,7 @@ class App extends React.Component {
 
     // Method to update the cirlces using D3
     updatePoints() {
-        // Randomly generate points
+        // Randomly generate points based on the `width` and `height` props
         let data = d3.range(this.state.numPoints).map((d) => {
             return {x: Math.random() * this.props.width, y: Math.random() * this.props.height}
         });
@@ -42,25 +42,18 @@ class App extends React.Component {
     render() {
         
         // Return HTML elements to hold the chart
-        return (
-            <div>
-                <div className="jumbotron">
-                    <h1 className="display-3">07-d3-demo</h1>
-                    <p className="lead">A basic demonstration of React + D3</p>
-                    <span><a href="../">(all exercises)</a></span>
+        return (                  
+            <div className="container">
+                <div>
+                    <button className="btn btn-primary" onClick={(d) => this.setState({numPoints:this.state.numPoints +10})}>+ 10 points</button>
                 </div>
-                <div className="container">
-                    <div>
-                        <button className="btn btn-primary" onClick={(d) => this.setState({numPoints:this.state.numPoints +10})}>+ 10 points</button>
-                    </div>
-                    <div className="chart-wrapper">
-                        <svg className="chart" width={this.props.width} height={this.props.height}>
-                            <g ref={(node) => { this.chartArea = node; }}
-                                transform={`translate(${this.props.margin.left}, ${this.props.margin.top})`} />
-                        </svg>
-                    </div>
+                <div className="chart-wrapper">
+                    <svg className="chart" width={this.props.width} height={this.props.height}>
+                        <g ref={(node) => { this.chartArea = node; }}
+                            transform={`translate(${this.props.margin.left}, ${this.props.margin.top})`} />
+                    </svg>
                 </div>
-            </div>
+            </div>            
         )
     }
 }

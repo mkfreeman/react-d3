@@ -1,5 +1,5 @@
 # 04-react-intro-exercise
-In this exercise, you'll follow the instructions below to build a simple todo list that looks like this:
+In this exercise, you'll follow the instructions below to build a simple _todo list_ that looks like this:
 
 ![Complete todo list](img/complete.png)
 In doing so, you'll create and render two react components. See the solution in the `solution.js` file. 

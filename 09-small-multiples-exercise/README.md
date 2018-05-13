@@ -4,10 +4,10 @@ In this exercise, you'll follow the instructions below to create a small multipl
 
 ![Complete small multiples scatterplots](img/complete.png)
 
-In doing so, you'll use `d3.nest()` to organize your data to pass to your `<ScatterPlot>` component. See the `App_solution.js` file for solutions.
+In doing so, you'll use `d3.nest()` to organize your data to pass to your `<ScatterPlot>` components. See the `App_solution.js` file for solutions.
 
 ## Instructions
-The majority of the code has been written for this exercise. The core challenge of this exercise is to figure out the proper **data structure** for creating small multiples. More specifically, you'll create a scatterplot for each _state_ in the dataset. To do so, make the following changes in your `App.js` file.
+The majority of the code has been written for this exercise. The core challenge of this exercise is to figure out the proper **data structure** for creating small multiples. More specifically, you'll create a `<Scatterplot>` component for each _state_ in the dataset. To do so, make the following changes in your `App.js` file.
 
 ### `render()` Method
 As noted above, this exercise is really about getting the right _data structure_. Because the intention is to render a `<ScatterPlot>` component for each _state_ in the dataset, you'll need to create an array of data, one object for each state present. Luckily, the `d3.nest()` function is a direct solution to this challenge:
@@ -20,5 +20,5 @@ As noted above, this exercise is really about getting the right _data structure_
   - `radius`: a radius for each point, stored in `this.state.radius`.
   - `color`: the color for each point, stored in `this.state.color`.
   - `data`: the data for the plot, stored in the `.vales` property of your iterant. 
-  - `key`: a unique key for the plot, so React can easily _diff_ the DOM
+  - `key`: a unique key for the plot, so React can easily _diff_ the DOM. You could use the index of the iterant, or perhaps more appropriately, the `.key` property of your iterant. 
   

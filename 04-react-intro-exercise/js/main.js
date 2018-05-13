@@ -22,7 +22,7 @@ const todos = [
 ];
 
 
-// Create a component ToDo that represents an item in a to do list (see README.md for instructions)
+// Create a component Todo that represents an item in a to do list (see README.md for instructions)
 
 
 // Create a class TodoList (see README.md for instructions)

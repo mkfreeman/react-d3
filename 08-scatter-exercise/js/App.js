@@ -19,35 +19,28 @@ class App extends React.Component {
         let options = this.state.data.length === 0 ? [] : Object.keys(this.state.data[0]);
         options = options.filter((d) => d != "county" && d != "state");
 
-        // Compute allData: an array of objects for your scatterplot
+        // Compute `allData`: an array of objects for your scatterplot
 
         return (
-            <div>
-                <div className="jumbotron">
-                    <h1 className="display-3">08-scatter-exercise</h1>
-                    <p className="lead">Making a D3 scatterplot in React</p>
-                    <span><a href="../">(all exercises)</a></span>
-                </div>
-                <div className="container">
-                    <div className="control-container">
+            <div className="container">
+                <div className="control-container">
 
-                        {/* X Variable Select Menu */}
-                        <div className="control-wrapper">
-                            <label htmlFor="xVar">X Variable:</label>
-                            <select id="xVar" value={this.state.xVar} className="custom-select" onChange={(d) => this.setState({ xVar: d.target.value })}>
-                                {options.map((d) => {
-                                    return <option key={d}>{d}</option>
-                                })}
-                            </select>
-                        </div>
-
-                        {/* Create a Y Variable Select Menu */}
-                                              
+                    {/* X Variable Select Menu */}
+                    <div className="control-wrapper">
+                        <label htmlFor="xVar">X Variable:</label>
+                        <select id="xVar" value={this.state.xVar} className="custom-select" onChange={(d) => this.setState({ xVar: d.target.value })}>
+                            {options.map((d) => {
+                                return <option key={d}>{d}</option>
+                            })}
+                        </select>
                     </div>
 
-                    {/* Render a `<ScatterPlot>` plot */}
-                    
+                    {/* Create a Y Variable Select Menu */}
+                                            
                 </div>
+
+                {/* Render a `<ScatterPlot>` plot */}
+                
             </div>
         )
     }

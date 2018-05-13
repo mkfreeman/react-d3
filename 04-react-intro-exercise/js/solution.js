@@ -21,7 +21,7 @@ const todos = [
     }
 ];
 
-// Create a component ToDo that represents an item in a to do list (see README.md for instructions)
+// Create a component Todo that represents an item in a to do list (see README.md for instructions)
 class Todo extends React.Component {
     // Render the Todo item
     render() {
@@ -39,8 +39,8 @@ class TodoList extends React.Component {
     render() {
         return (
             <div>
-                {this.props.list.map((d) => {
-                    return <Todo status={d.status} priority={d.priority} description={d.description} />
+                {this.props.list.map((d, i) => {
+                    return <Todo key = {i} status={d.status} priority={d.priority} description={d.description} />
                 })
                 }
             </div>
