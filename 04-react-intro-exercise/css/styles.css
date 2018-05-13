@@ -2,6 +2,12 @@
 /* @import url("https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"); */
 @import url("../../lib/bootstrap.min.css");
 
+
+.jumbotron {
+    padding:1rem 1rem;
+    margin-bottom:20px;
+}
+
 .complete {
     text-decoration: line-through;
 }

@@ -21,7 +21,7 @@ class Demos extends React.Component {
                 {this.state.demos.map(function (d, i) {
                     return (
                         <div key={'demo-' + i}>
-                            <h3><a href={d.title} target="_blank">{d.title}</a></h3>
+                            <h3><a href={d.title}>{d.title}</a></h3>
                             <p>{d.description}
                             </p>
                         </div>
