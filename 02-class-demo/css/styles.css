@@ -5,3 +5,8 @@
 .lead {
     margin-bottom:0px;
 }
+
+.jumbotron {
+    padding:1rem 1rem;
+    margin-bottom:20px;
+}
