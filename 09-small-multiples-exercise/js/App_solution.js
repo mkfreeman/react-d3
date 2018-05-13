@@ -39,13 +39,7 @@ class App extends React.Component {
         let nestedData = d3.nest().key((d) => d.group)
             .entries(allData);
 
-        return (
-            <div>
-                <div className="jumbotron">
-                    <h1 className="display-3">09-small-multiples-exercise</h1>
-                    <p className="lead">Building small multiples with React + D3</p>
-                    <span><a href="../">(all exercises)</a></span>
-                </div>
+        return (             
                 <div className="container">
                     <div className="control-container">
 
@@ -101,7 +95,6 @@ class App extends React.Component {
                         })
                     }
                 </div>
-            </div >
         )
     }
 }
