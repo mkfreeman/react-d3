@@ -23,7 +23,6 @@ class App extends React.Component {
 
     // Add method to update the x variable
     updateXvar(d) {
-        console.log(this)
         this.setState({ xVar: d})
     }
 
