@@ -7,4 +7,5 @@ title,description
 06-state-exercise,This exercise challenges you to leverage the state of an application to keep track of information that changes through user interactions.
 07-d3-demo,"Here, you can see how to leverage D3 to interact with components that are created using React."
 08-scatter-exercise,"In this exercise, you will create a fully functional scatterplot using D3 and React in combination with one another"
-09-small-multiples-exercise,"In this final exercise, you will see how simple it is to use React to render small multiples fo D3 visualizations."
+09-small-multiples-exercise,"In this exercise, you will see how simple it is to use React to render small multiples fo D3 visualizations."
+10-lifting-up-state-exercise,"In this final exercise, you will use React's ability to lift up state to add interactivty across charts.
