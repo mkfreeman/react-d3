@@ -14,7 +14,7 @@ class Bio extends React.Component {
         });
         return (
             <div>
-                <h1>Arthur</h1>
+                <h1>{this.props.name}</h1>
                 <p>Hello, my name is {this.props.name} and I am {article} {this.props.description}.</p>
             </div>
         )
